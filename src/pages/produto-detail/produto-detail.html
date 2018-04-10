@@ -12,10 +12,10 @@
     <img [src]="item?.imageUrl || 'assets/imgs/prod.jpg'" />
     <ion-card-content>
       <ion-card-title>
-        {{item?.nome}}
+        {{ item?.nome }}
       </ion-card-title>
       <p>
-        {{item?.preco | currency}}
+        {{ item?.preco | currency:'EUR':true }}
       </p>
     </ion-card-content>
   </ion-card>

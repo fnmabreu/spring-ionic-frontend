@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, LOCALE_ID } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { registerLocaleData } from '@angular/common';
+import localePT from '@angular/common/locales/pt-PT';
 
 import { MyApp } from './app.component';
 
@@ -14,6 +16,9 @@ import { ClienteService } from '../services/domain/cliente.service';
 import { StorageService } from '../services/storage.service';
 import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 import { ProdutoService } from '../services/domain/produto.service';
+
+
+registerLocaleData(localePT);
 
 @NgModule({
   declarations: [
@@ -29,6 +34,7 @@ import { ProdutoService } from '../services/domain/produto.service';
     MyApp
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: "pt-PT" },
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -39,6 +45,7 @@ import { ProdutoService } from '../services/domain/produto.service';
     StorageService,
     ClienteService,
     ProdutoService
-  ]
+  ],
+
 })
 export class AppModule {}
