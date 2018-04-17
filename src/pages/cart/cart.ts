@@ -18,9 +18,8 @@ export class CartPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public cartService: CartService,
-    public produtoService: ProdutoService) {
-
-  }
+    public produtoService: ProdutoService
+  ) {}
 
   ionViewDidLoad() {
     let cart = this.cartService.getCart();
@@ -29,13 +28,14 @@ export class CartPage {
   }
 
   loadImageUrls() {
-    for (var i=0; i<this.items.length; i++) {
+    for (var i = 0; i < this.items.length; i++) {
       let item = this.items[i];
-      this.produtoService.getSmallImageFromBucket(item.produto.id)
-        .subscribe(response => {
+      this.produtoService.getSmallImageFromBucket(item.produto.id).subscribe(
+        response => {
           item.produto.imageUrl = `${API_CONFIG.bucketBaseUrl}/prod${item.produto.id}-small.jpg`;
         },
-        error => {});
+        error => {}
+      );
     }
   }
 
@@ -51,11 +51,15 @@ export class CartPage {
     this.items = this.cartService.decreaseQuantity(produto).items;
   }
 
-  total() : number {
+  total(): number {
     return this.cartService.total();
   }
 
-  goOn(){
-    this.navCtrl.setRoot('CategoriasPage');
+  goOn() {
+    this.navCtrl.setRoot("CategoriasPage");
+  }
+
+  checkout() {
+    this.navCtrl.push("PickAddressPage");
   }
 }
