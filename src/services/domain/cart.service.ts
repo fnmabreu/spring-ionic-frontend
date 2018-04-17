@@ -70,7 +70,7 @@ export class CartService {
       if(cart.items[position].quantidade < 1){
         cart = this.removeProduto(produto);
       }
-      
+
     }
 
     this.storage.setCart(cart);
