@@ -2,7 +2,7 @@
 <widget id="com.omega.cursospringionic" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>spring-ionic-frontend</name>
     <description>Estudo de caso sobre Spring Boot e Ionic.</description>
-    <author email="fnmabreuhi@gmail.com" href="">Fabio Abreu</author>
+    <author email="speltas@gmail.com" href="">Fabio Abreu</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
